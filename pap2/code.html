@@ -1,0 +1,126 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title> Form</title>
+        <style>
+            form
+            {
+                width:500px;
+                margin:0 auto;
+                justify-content:center;
+                background-color:#f2f2f2;
+                padding:20px;
+                border-radius:10px;
+                box-shadow:0 0 10px rgba(0,0,0,0.3);
+            }
+
+            input[type=text],
+            input[type=password],
+            input[type=number],
+            input[type=file],
+            input[type=email],
+            input[type=url]
+            {
+                display:block;
+                width:96%;
+                padding:10px;
+                margin-bottom:20px;
+                border:none;
+                border-radius:5px;
+                box-shadow:0 0 5px rgba(0,0,0,0.1);
+                background-color:#fff;
+                font-size:16px;
+                line-height:1.5;
+            }
+
+            input[type=range]
+            {
+                display:block;
+                width:100%;
+                padding:0;
+                margin-bottom:20px;
+                -webkit-appearance:none;
+                background-color:#fff;
+            }
+
+            input[type=range]::-webkit-slider-thumb
+            {
+                -webkit-appearance:none;
+                width:20px;
+                height:20px;
+                border-radius:50%;
+                background-color:#4CAF50;
+                cursor:pointer;
+            }
+
+            input[type=submit],input[type=reset]
+            {
+                display:inline-block;
+                background-color:#4CAF50;
+                color:#fff;
+                border:none;
+                border-radius:5px;
+                padding:10px;
+                cursor:pointer;
+                font-size:16px;
+                line-height:1.5;
+                transition:background-color 0.2s ease;
+            }
+
+            input[type=submit]:hover,input[type=reset]:hover
+            {
+                background-color:#2E8B57;
+            }
+            label
+            {
+                display:block;
+                font-weight:bold;
+                margin-bottom:10px;
+            }
+            h2
+            {
+                font-size:30px;
+                color:#4CAF50;
+                text-align:center;
+                margin-top:0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Registration Form</h2>
+        <form>
+            <label for="name">Name:</label>
+            <input type="text" id="name"name="name"
+            placeholder="Enter your name" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password"name="password"
+            placeholder="Enter your name" required>
+
+            <label for="cpassword">confirm password:</label>
+            <input type="password" id="cpassword"name="cpassword"
+            placeholder="confirm password">
+
+            <label for="number">Contact number:</label>
+            <input type="number" id="number" name="number"
+            placeholder="Enter your Contact number" min="1000000000" max="9999999999">
+
+            <label for="range">Skill range:</label>
+            <input type="range" id="range" name="range" min="0" max="10" value="50">
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+
+            <label for="url">Profit url:</label>
+            <input type="url" id="url" name="url"placeholder="Enter your profile url">
+
+            <label for="file">Resume:</label>
+            <input type="file" id="file" name="file">
+
+            <center>
+                <input type="submit" value="submit">
+                <input type="reset" value="reset">
+            </center>
+        </form>
+    </body>
+</html>
