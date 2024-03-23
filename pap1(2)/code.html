@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Face</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, intial-scale=1.0">
+        <style>
+            #container
+            {
+                width:250px;
+                height:250px;
+                background-color:blue;
+                border:4PX solid black;
+                border-radius:20px;              /*DESIGNING OF BLUE BOX  WITH BORDER*/	  
+                margin-bottom:10px;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="container"><canvas id="face" width="200" height="200"></canvas></div>
+        <button onclick="toggleFace()">Toggle Face</button>
+        <script>
+            const canvas=document.getElementById("face");
+            const ctx=canvas.getContext('2d')
+            var showSmile=true;
+            function drawFace()
+            {
+                ctx.clearRect(0,0,canvas.width,canvas.height);
+                ctx.beginPath();
+                ctx.fillStyle="yellow";
+                ctx.arc(100,100,100,0,Math.PI*2);      //CIRCLE WITH COLOR YELLOW
+                ctx.fill();
+
+                ctx.strokeStyle="black";
+                ctx.lineWidth=4;
+
+                ctx.beginPath();
+                ctx.moveTo(40,70);
+                ctx.quadraticCurveTo(60,40,80,70);    //LEFT SIDE ARC
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(120,70);
+                ctx.quadraticCurveTo(140,40,160,70);   //RIGHT SIDE ARC
+                ctx.stroke();
+
+                ctx.beginPath();
+                ctx.moveTo(100,90);
+                ctx.quadraticCurveTo(70,100,100,120);  //NOSE
+                ctx.stroke();
+
+            }
+
+            function smile()
+            {
+                ctx.beginPath();
+                ctx.moveTo(60,150);
+                ctx.quadraticCurveTo(105,190,150,150);         //SMILE FACE
+                ctx.stroke();
+            }
+
+            function sad()
+            {
+                ctx.beginPath();
+                ctx.moveTo(60,150);
+                ctx.quadraticCurveTo(105,110,150,150);     //SAD FACE
+                ctx.stroke();
+            }
+
+            function toggleFace()
+            {
+                drawFace();
+                if(showSmile)
+                smile();                   //CALLING THE FUNCTION
+                else
+                sad();
+                showSmile = !showSmile; 
+            }
+
+            drawFace();
+            smile();
+        </script>
+    </body>
+</html>
