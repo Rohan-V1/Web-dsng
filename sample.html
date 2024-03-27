@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMILE</title>
+    <style>
+        #container{
+            height: 250px;
+            width: 250px;
+            background-color: blue;
+            border-radius: 20px;
+            border: 2px solid black;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"><canvas id="face" height="200" width="200"></canvas><br></div>
+    <button onclick="toggleface()" >toggleFace</button>
+    <script>
+        const canvas=document.getElementById("face");
+        const ctx=canvas.getContext('2d')
+
+        let showSmile=true;
+
+        function drawFace(){
+            ctx.clearRect(0,0,canvas.width,canvas.height);
+            ctx.beginPath();
+            ctx.fillStyle="yellow";
+            ctx.arc(100,100,100,0 ,Math.PI*2)
+            ctx.fill();
+
+            ctx.strokeStyle="black";
+            ctx.lineWidth='4';
+
+            ctx.beginPath();
+            ctx.moveTo(40,70);
+            ctx.quadraticCurveTo(60,40,80,70);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(120,70);
+            ctx.quadraticCurveTo(140,40,160,70);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.moveTo(100,100);
+            ctx.quadraticCurveTo(50,100,100,130);
+            ctx.stroke();
+        }
+
+        function smile(){
+            ctx.beginPath();
+            ctx.moveTo(50,150);
+            ctx.quadraticCurveTo(100,220,150,150);
+            ctx.stroke();
+        }
+
+        function sad(){
+            ctx.beginPath();
+            ctx.moveTo(50,150);
+            ctx.quadraticCurveTo(100,120,150,150);
+            ctx.stroke();
+        }
+
+        function toggleface(){
+            drawFace();
+            if(showSmile)
+                smile();
+            else
+                sad();
+            showSmile=!showSmile;
+        }
+        drawFace();
+        smile();
+    </script>
+
+</body>
+</html>
