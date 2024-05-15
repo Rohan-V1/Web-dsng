@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar</title>
+</head>
+<body>
+    <div>
+        <canvas id="solarSystem" height="400" width="440"></canvas>
+    </div> 
+    <script>
+        const ss=document.getElementById("solarSystem");
+        const ctx=ss.getContext('2d');
+
+        function showSS(){
+            ctx.clearRect(0,0,440,400);
+            ctx.fillStyle="darkblue";
+            ctx.fillRect(0,0,440,400);
+            ctx.save();
+
+            ctx.translate(220,200);
+            ctx.beginPath();
+            ctx.fillStyle="yellow";
+            ctx.arc(0,0,20,0,Math.PI*2);
+            ctx.fill();
+
+            ctx.strokeStyle="black";
+            ctx.beginPath();
+            ctx.lineWidth=5;
+            ctx.arc(0,0,150,0,Math.PI*2);
+            ctx.stroke();
+
+            ctx.translate(150,0);
+            ctx.beginPath();
+            ctx.fillStyle="green";
+            ctx.arc(0,0,10,0,Math.PI*2);
+            ctx.fill();
+
+            ctx.translate(30,0);
+            ctx.beginPath();
+            ctx.fillStyle="white";
+            ctx.arc(0,0,5,0,Math.PI*2);
+            ctx.fill();
+
+
+            ctx.restore();
+        }
+
+        showSS();
+    </script>
+</body>
+</html>
