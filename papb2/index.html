@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    table {
+      border: 5px solid black;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: black;
+    }
+    input[type="button"] {
+      width: 100%;
+      padding: 20px 40px;
+      background-color: darkviolet;
+      color: white;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+    }
+    input[type="text"] {
+      width: calc(100% - 44px);
+      padding: 20px 40px;
+      font-size: 24px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      background-color: white;
+      border: 2px solid black;
+      text-align: right;
+    }
+    #btn-clear {
+      background-color: red;
+    }
+    #btn-equal {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <table class="Calculator">
+    <tr>
+      <td colspan="3"><input class="display-box" type="text" id="result" disabled/></td>
+      <!--clearScreen() function clears all the values-->
+      <td><input type="button" value="C" onclick="clearScreen()" id="btn-clear"/></td>
+    </tr>
+    <tr>
+      <!-- display() function displays the value of clicked button-->
+      <td><input type="button" value="1" onclick="display('1')"/></td>
+      <td><input type="button" value="2" onclick="display('2')"/></td>
+      <td><input type="button" value="3" onclick="display('3')"/></td>
+      <td><input type="button" value="/" onclick="display('/')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="4" onclick="display('4')"/></td>
+      <td><input type="button" value="5" onclick="display('5')"/></td>
+      <td><input type="button" value="6" onclick="display('6')"/></td>
+      <td><input type="button" value="-" onclick="display('-')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="7" onclick="display('7')"/></td>
+      <td><input type="button" value="8" onclick="display('8')"/></td>
+      <td><input type="button" value="9" onclick="display('9')"/></td>
+      <td><input type="button" value="+" onclick="display('+')"/></td>
+    </tr>
+    <tr>
+      <td><input type="button" value="." onclick="display('.')"/></td>
+      <td><input type="button" value="0" onclick="display('0')"/></td>
+      <!-- calculate() function evaluates the mathematical expression-->
+      <td><input type="button" value="=" onclick="Calculate()" id="btn-equal"/></td>
+      <td><input type="button" value="*" onclick="display('*')"/></td>
+    </tr>
+  </table>
+  <script>
+    function clearScreen() {
+      document.getElementById("result").value = "";
+    }
+
+    function display(value) {
+      document.getElementById("result").value += value;
+    }
+
+    function Calculate() {
+      var p = document.getElementById("result").value;
+      var q = eval(p);
+      document.getElementById("result").value = q;
+    }
+  </script>
+</body>
+</html>

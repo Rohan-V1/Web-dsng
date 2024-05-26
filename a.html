@@ -13,10 +13,30 @@
         const ss=document.getElementById("solarSystem");
         const ctx=ss.getContext('2d');
 
+        let angleGreen = 0;
+        let angleWhite = 0;
+
         function showSS(){
             ctx.clearRect(0,0,440,400);
             ctx.fillStyle="darkblue";
             ctx.fillRect(0,0,440,400)
+
+            ctx.translate(220,200);
+            ctx.rotate(angleGreen); // Rotate canvas for green orbit
+            ctx.translate(150,0);
+            ctx.beginPath();
+            ctx.fillStyle="green";
+            ctx.arc(0,0,10,0,Math.PI*2);
+            ctx.fill();
+
+            ctx.rotate(angleWhite); // Rotate canvas for white orbit
+            ctx.translate(30,0);
+            ctx.beginPath();
+            ctx.fillStyle="white";
+            ctx.arc(0,0,5,0,Math.PI*2);
+            ctx.fill();
+
+            ctx.setTransform(1, 0, 0, 1, 0, 0); // Reset transformation matrix
 
             ctx.translate(220,200);
             ctx.beginPath();
@@ -30,22 +50,16 @@
             ctx.arc(0,0,150,0,Math.PI*2);
             ctx.stroke();
 
-            ctx.translate(150,0);
-            ctx.beginPath();
-            ctx.fillStyle="green";
-            ctx.arc(0,0,10,0,Math.PI*2);
-            ctx.fill();
-
-            ctx.translate(30,0);
-            ctx.beginPath();
-            ctx.fillStyle="white";
-            ctx.arc(0,0,5,0,Math.PI*2);
-            ctx.fill();
-
-
         }
 
-        showSS();
+        function animate(){
+            angleGreen += 0.01; // Adjust speed as needed
+            angleWhite += 0.02; // Adjust speed as needed
+            showSS();
+            requestAnimationFrame(animate);
+        }
+
+        animate();
     </script>
 </body>
 </html>

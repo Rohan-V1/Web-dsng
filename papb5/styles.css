@@ -1,0 +1,63 @@
+body {
+    background: #009688;
+  }
+  
+  .loop-wrapper {
+    margin: 0 auto;
+    position: relative;
+    width: 600px;
+    height: 250px;
+    overflow: hidden;
+    border-bottom: 3px solid #fff;
+  }
+  
+  .tree {
+    position: absolute;
+    height: 100px;
+    width: 35px;
+    bottom: 0;
+    background: url(tree.svg) no-repeat;
+  }
+  
+  .truck,
+  .wheels {
+    width: 85px;
+    bottom: 0px;
+    right: 50%;
+    position: absolute;
+  }
+  
+  .truck {
+    background: url(truck.svg) no-repeat;
+    height: 60px;
+  }
+  
+  .truck:before {
+    content: " ";
+    position: absolute;
+    width: 25px;
+    box-shadow:
+      -30px 28px 0 1.5px #fff,
+      -35px 18px 0 1.5px #fff;
+  }
+  
+  .wheels {
+    background: url(wheels.svg) no-repeat;
+    height: 15px;
+  }
+  
+  .tree {
+    animation: tree 3s 0.000s linear infinite;
+  }
+  
+  @keyframes tree {
+    0% {
+      transform: translate(1350px);
+    }
+    50% {
+    }
+    100% {
+      transform: translate(-50px);
+    }
+  }
+  
